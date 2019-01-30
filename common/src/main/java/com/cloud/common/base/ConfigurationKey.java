@@ -25,5 +25,9 @@ public enum ConfigurationKey {
     /**
      * 自定义配置的项目
      */
-    ICON
+    ICON,
+    /**
+     * 日志
+     */
+    LOGGER
 }

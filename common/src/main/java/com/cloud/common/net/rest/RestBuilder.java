@@ -3,6 +3,7 @@ package com.cloud.common.net.rest;
 import android.content.Context;
 import android.os.Handler;
 
+import com.cloud.c9logger.logger2.log.Logger;
 import com.cloud.common.loading.CloudLoader;
 import com.cloud.common.loading.IDialog;
 import com.cloud.common.net.HttpClient;
@@ -83,6 +84,8 @@ public class RestBuilder implements IBuilder {
             mRequest.onRequestStart();
         }
 
+        Logger.d("【请求】：" + mUrl);
+        Logger.d("【参数】：" + PARAMS);
         showDialog();
         Call<String> call = null;
         switch (method) {

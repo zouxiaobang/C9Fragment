@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 
 
+import com.cloud.c9logger.logger2.log.Logger;
 import com.cloud.common.loading.CloudLoader;
 import com.cloud.common.net.callback.AnnotationCallback;
 import com.cloud.common.net.callback.IFailure;
@@ -35,10 +36,12 @@ public class RequestCallback implements Callback<String> {
     @Override
     public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
         //返回：不管服务器是否出错都返回
+        RestResponse restResponse = buildWebResponse(response);
+        Logger.d("【返回】：" + restResponse);
         if (ISUCCESS != null) {
-            ISUCCESS.onSuccess(buildWebResponse(response));
+            ISUCCESS.onSuccess(restResponse);
         }
-        AnnotationCallback.getInstance().send(buildWebResponse(response));
+        AnnotationCallback.getInstance().send(restResponse);
 
         if (IREQUEST != null) {
             IREQUEST.onRequestEnd();
@@ -49,6 +52,7 @@ public class RequestCallback implements Callback<String> {
     @Override
     public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
         //当前网络不可用或网络请求超时等情况
+        Logger.d("【请求错误】：" + t.getMessage());
         if (IFAILURE != null) {
             IFAILURE.onFailure(t.getMessage());
         }

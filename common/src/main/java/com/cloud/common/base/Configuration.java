@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import okhttp3.Interceptor;
 
@@ -84,6 +85,11 @@ public class Configuration {
     public final Configuration withInterceptors(List<Interceptor> interceptorList) {
         INTERCEPTOR_LIST.addAll(interceptorList);
         CONFIG_PARAMS.put(ConfigurationKey.INTERCEPTOR.name(), INTERCEPTOR_LIST);
+        return this;
+    }
+
+    public final Configuration withLogger(String globalTag) {
+        CONFIG_PARAMS.put(ConfigurationKey.LOGGER.name(), globalTag);
         return this;
     }
 

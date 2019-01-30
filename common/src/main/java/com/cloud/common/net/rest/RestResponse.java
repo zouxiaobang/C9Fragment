@@ -48,4 +48,13 @@ public class RestResponse {
     public String getHead(String key) {
         return heads.get(key);
     }
+
+    @Override
+    public String toString() {
+        return "RestResponse{" +
+                "responseCode=" + responseCode +
+                ", responseContent='" + responseContent + '\'' +
+                ", heads=" + heads +
+                '}';
+    }
 }
