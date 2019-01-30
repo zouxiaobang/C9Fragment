@@ -1,15 +1,13 @@
 package com.cloud.c9fragment.module.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.cloud.c9fragment.module.delegate.SampleDelegate;
+import com.cloud.common.component.activity.ProxyActivity;
+import com.cloud.common.component.delegate.Cloud9Delegate;
 
-import com.cloud.c9fragment.R;
-
-public class SampleActivity extends AppCompatActivity {
+public class SampleActivity extends ProxyActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
+    public Cloud9Delegate setRootDelegate() {
+        return new SampleDelegate();
     }
 }
