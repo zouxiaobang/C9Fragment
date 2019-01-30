@@ -3,6 +3,8 @@ package com.cloud.common.net.rest;
 import android.content.Context;
 import android.os.Handler;
 
+import com.cloud.common.loading.CloudLoader;
+import com.cloud.common.loading.IDialog;
 import com.cloud.common.net.HttpClient;
 import com.cloud.common.net.HttpMethod;
 import com.cloud.common.net.IBuilder;

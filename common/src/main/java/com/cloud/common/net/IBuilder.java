@@ -1,12 +1,9 @@
 package com.cloud.common.net;
 
+import com.cloud.common.loading.IDialog;
 import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
-import com.cloud9.core.loader.IDialog;
-import com.cloud9.core.net.callback.IFailure;
-import com.cloud9.core.net.callback.IRequest;
-import com.cloud9.core.net.callback.ISuccess;
 
 /**
  * author: xb.Zou

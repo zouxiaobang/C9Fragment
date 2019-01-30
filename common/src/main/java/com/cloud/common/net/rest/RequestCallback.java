@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 
 
+import com.cloud.common.loading.CloudLoader;
 import com.cloud.common.net.callback.AnnotationCallback;
 import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
