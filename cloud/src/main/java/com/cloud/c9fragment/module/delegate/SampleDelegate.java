@@ -4,15 +4,18 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cloud.c9fragment.R;
 import com.cloud.c9logger.logger2.log.Logger;
 import com.cloud.common.component.delegate.Cloud9Delegate;
 import com.cloud.common.loading.CloudFullScreenDialog;
 import com.cloud.common.net.HttpClient;
 import com.cloud.common.net.callback.HttpCallback;
-import com.cloud.common.net.callback.ISuccess;
 import com.cloud.common.net.rest.RestBuilder;
 import com.cloud.common.net.rest.RestResponse;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 /**
  * @Author: xb.zou
@@ -35,17 +38,22 @@ public class SampleDelegate extends Cloud9Delegate {
          * 而接收失败时信息则使用如 @HttpCallback public void onFailureResponse(String failMsg){}的方法
          * 方法名称、参数名称可以自取
          */
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("mobile", "18814182533");
+        RequestBody body
+                = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString());
         HttpClient.builder(new RestBuilder(this.getProxyActivity()))
-//                .builder(this.getProxyActivity())
-                .url("https://www.baidu.com/")
-                .success((ISuccess<RestResponse>) response -> {
+                .url("http://47.106.66.5:9090/kiosk/landlord/captcha")
+                .params("mobile", "18814182533")
+//                .body(body)
+                /*.success((ISuccess<RestResponse>) response -> {
                     Logger.d("【请求成功】" + response.getResponseCode());
                     Logger.d("【请求成功】" + response.getResponseContent());
                 })
-                .failure(throwMsg -> Logger.d("【请求失败】" + throwMsg))
+                .failure(throwMsg -> Logger.d("【请求失败】" + throwMsg))*/
                 .loader(new CloudFullScreenDialog(this.getProxyActivity()))
                 .build()
-                .get();
+                .post();
     }
 
     @HttpCallback

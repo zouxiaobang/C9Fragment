@@ -5,6 +5,10 @@ import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
 
+import java.util.Map;
+
+import okhttp3.RequestBody;
+
 /**
  * author: xb.Zou
  * date: 2018/11/25 0025
@@ -12,6 +16,9 @@ import com.cloud.common.net.callback.ISuccess;
  **/
 public interface IBuilder {
     IBuilder url(String url);
+    IBuilder body(RequestBody requestBody);
+    IBuilder params(String key, String value);
+    IBuilder params(Map<String, String> params);
     IBuilder loader(IDialog dialog);
     IBuilder request(IRequest request);
     IBuilder success(ISuccess success);

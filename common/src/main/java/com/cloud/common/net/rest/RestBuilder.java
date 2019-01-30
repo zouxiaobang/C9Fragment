@@ -3,6 +3,7 @@ package com.cloud.common.net.rest;
 import android.content.Context;
 import android.os.Handler;
 
+import com.alibaba.fastjson.JSONObject;
 import com.cloud.c9logger.logger2.log.Logger;
 import com.cloud.common.loading.CloudLoader;
 import com.cloud.common.loading.IDialog;
@@ -14,6 +15,7 @@ import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
 
 import java.io.File;
+import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
@@ -55,6 +57,41 @@ public class RestBuilder implements IBuilder {
     }
 
     @Override
+    public IBuilder body(RequestBody requestBody) {
+        this.mBody = requestBody;
+        return this;
+    }
+
+    @Override
+    public IBuilder params(String key, String value) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(key, value);
+        RequestBody body
+                = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString());
+        this.mBody = body;
+
+        PARAMS.clear();
+        PARAMS.put(key, value);
+        return this;
+    }
+
+    @Override
+    public IBuilder params(Map<String, String> params) {
+        JSONObject jsonObject = new JSONObject();
+        for (String key: params.keySet()) {
+            jsonObject.put(key, params.get(key));
+        }
+        RequestBody body
+                = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString());
+        this.mBody = body;
+
+        PARAMS.clear();
+        PARAMS.putAll(params);
+        return this;
+    }
+
+
+    @Override
     public IBuilder loader(IDialog dialog) {
         this.mDialog = dialog;
         return this;
@@ -85,31 +122,41 @@ public class RestBuilder implements IBuilder {
         }
 
         Logger.d("【请求】：" + mUrl);
-        Logger.d("【参数】：" + PARAMS);
+        Logger.d("【请求参数】：" + PARAMS);
         showDialog();
         Call<String> call = null;
+        JSONObject jsonObject = new JSONObject();
+        for (String key: PARAMS.keySet()) {
+            jsonObject.put(key, PARAMS.get(key));
+        }
+        RequestBody body
+                = RequestBody.create(MediaType.parse("application/json; charset=utf-8"),
+                jsonObject.toString());
+
         switch (method) {
             case GET:
                 call = mService.get(mUrl, PARAMS);
                 break;
             case POST:
-                call = mService.post(mUrl, PARAMS);
-                break;
-            case POST_RAW:
-                call = mService.postRaw(mUrl, mBody);
+                if (PARAMS.size() == 0) {
+                    call = mService.post(mUrl, mBody);
+                } else {
+                    call = mService.post(mUrl, body);
+                }
                 break;
             case PUT:
-                call = mService.put(mUrl, PARAMS);
-                break;
-            case PUT_RAW:
-                call = mService.putRaw(mUrl, mBody);
+                if (PARAMS.size() == 0) {
+                    call = mService.put(mUrl, mBody);
+                } else {
+                    call = mService.put(mUrl, body);
+                }
                 break;
             case UPLOAD:
                 final RequestBody requestBody
                         = RequestBody.create(MediaType.parse(MultipartBody.FORM.toString()), mFile);
-                final MultipartBody.Part body
+                final MultipartBody.Part multipartBody
                         = MultipartBody.Part.createFormData("file", mFile.getName(), requestBody);
-                call = mService.upload(mUrl, body);
+                call = mService.upload(mUrl, multipartBody);
                 break;
             case DELETE:
                 call = mService.delete(mUrl, PARAMS);
