@@ -72,5 +72,6 @@ public class SampleNetDelegate extends Cloud9Delegate {
     @HttpCallback
     public void onResponse(String failMsg) {
         Logger.d("【请求失败onResponse】" + failMsg);
+        tvContent.setText("【请求失败onResponse】" + failMsg);
     }
 }

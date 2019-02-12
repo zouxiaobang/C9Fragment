@@ -10,9 +10,11 @@ import com.cloud.common.loading.IDialog;
 import com.cloud.common.net.HttpClient;
 import com.cloud.common.net.HttpMethod;
 import com.cloud.common.net.IBuilder;
+import com.cloud.common.net.callback.AnnotationCallback;
 import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
+import com.cloud.common.util.NetTool;
 
 import java.io.File;
 import java.util.Map;
@@ -117,6 +119,16 @@ public class RestBuilder implements IBuilder {
 
     @Override
     public void execute(HttpMethod method) {
+        if (!NetTool.isNetworkAvailable(mContext)) {
+            String errMsg = "网络连接异常";
+            if (mFailure != null) {
+                mFailure.onFailure(errMsg);
+            }
+            AnnotationCallback.getInstance().send(errMsg);
+
+            return;
+        }
+
         if (mRequest != null) {
             mRequest.onRequestStart();
         }
