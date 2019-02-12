@@ -88,8 +88,19 @@ public class Configuration {
         return this;
     }
 
+    /**
+     * 使用Logger
+     */
     public final Configuration withLogger(String globalTag) {
         CONFIG_PARAMS.put(ConfigurationKey.LOGGER.name(), globalTag);
+        return this;
+    }
+
+    /**
+     * 是否全屏显示
+     */
+    public final Configuration withHideBar(boolean hide) {
+        CONFIG_PARAMS.put(ConfigurationKey.HIDE_BAR.name(), hide);
         return this;
     }
 

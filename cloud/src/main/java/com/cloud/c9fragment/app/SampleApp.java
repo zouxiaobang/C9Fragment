@@ -21,6 +21,7 @@ public class SampleApp extends Application {
         Cloud9.init(this)
                 .withHost("http://localhost:8080")
                 .withLogger("Cloud9")
+                .withHideBar(true)
                 .configure();
 
 

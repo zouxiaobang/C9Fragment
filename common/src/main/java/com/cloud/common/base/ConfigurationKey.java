@@ -29,5 +29,9 @@ public enum ConfigurationKey {
     /**
      * 日志
      */
-    LOGGER
+    LOGGER,
+    /**
+     * 隐藏虚拟按键
+     */
+    HIDE_BAR
 }
