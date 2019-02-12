@@ -2,6 +2,7 @@ package com.cloud.c9fragment.module.delegate;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
 import com.alibaba.fastjson.JSONObject;
@@ -14,6 +15,8 @@ import com.cloud.common.net.callback.HttpCallback;
 import com.cloud.common.net.rest.RestBuilder;
 import com.cloud.common.net.rest.RestResponse;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -23,6 +26,9 @@ import okhttp3.RequestBody;
  * @Desc: to->
  */
 public class SampleDelegate extends Cloud9Delegate {
+    @BindView(R.id.btn_test_net)
+    AppCompatButton btnTestNet;
+
     @Override
     public Object setLayout() {
         return R.layout.delegate_sample;
@@ -30,39 +36,12 @@ public class SampleDelegate extends Cloud9Delegate {
 
     @Override
     public void onBindedView(@Nullable Bundle savedInstanceState, View rootView) {
-        /**
-         * 请求网络的返回方式有两种
-         * 一种通过接口回调：可通过ISuccess、IFailure来处理返回数据
-         * 一种通过注解回调：可通过@HttpCallback来处理，这种方法需要注意的是返回参数必须和所采用的网络请求策略返回的类型一致
-         * 即在接收成功信息时使用如 @HttpCallback public void onSuccessResponse(RestResponse successResponse){}的方法
-         * 而接收失败时信息则使用如 @HttpCallback public void onFailureResponse(String failMsg){}的方法
-         * 方法名称、参数名称可以自取
-         */
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("mobile", "18814182533");
-        RequestBody body
-                = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString());
-        HttpClient.builder(new RestBuilder(this.getProxyActivity()))
-                .url("http://47.106.66.5:9090/kiosk/landlord/captcha")
-                .params("mobile", "18814182533")
-//                .body(body)
-                /*.success((ISuccess<RestResponse>) response -> {
-                    Logger.d("【请求成功】" + response.getResponseCode());
-                    Logger.d("【请求成功】" + response.getResponseContent());
-                })
-                .failure(throwMsg -> Logger.d("【请求失败】" + throwMsg))*/
-                .loader(new CloudFullScreenDialog(this.getProxyActivity()))
-                .build()
-                .post();
     }
 
-    @HttpCallback
-    public void onResponse(RestResponse restResponse) {
-        Logger.d("【请求成功onResponse】" + restResponse.getResponseCode());
-    }
 
-    @HttpCallback
-    public void onResponse(String failMsg) {
-        Logger.d("【请求失败onResponse】" + failMsg);
+    @OnClick(R.id.btn_test_net)
+    public void onClick() {
+//        start(new SampleNetDelegate(), SupportFragment.SINGLETASK);
+        start(new SampleNetDelegate());
     }
 }
