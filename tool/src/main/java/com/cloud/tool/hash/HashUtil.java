@@ -1,4 +1,4 @@
-package com.cloud.c9fragment.util;
+package com.cloud.tool.hash;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

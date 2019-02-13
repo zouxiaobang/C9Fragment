@@ -1,4 +1,4 @@
-package com.cloud.common.util.sharedpreference;
+package com.cloud.tool.sharedpreference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
