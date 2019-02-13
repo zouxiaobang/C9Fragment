@@ -9,7 +9,7 @@ import java.security.MessageDigest;
  * @Date: 2019/2/13
  * @Desc: to-> 哈希计算工具类：MD5/SHA1/SHA256
  */
-public class HashUtil {
+public class HashTool {
 
     private static final char HEX_DIGITS[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
             '9','A', 'B', 'C', 'D', 'E', 'F' };
