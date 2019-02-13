@@ -19,6 +19,8 @@ import butterknife.OnClick;
 public class SampleDelegate extends Cloud9Delegate {
     @BindView(R.id.btn_test_net)
     AppCompatButton btnTestNet;
+    @BindView(R.id.btn_test_permission)
+    AppCompatButton btnTestPermission;
 
     @Override
     public Object setLayout() {
@@ -30,9 +32,16 @@ public class SampleDelegate extends Cloud9Delegate {
     }
 
 
-    @OnClick(R.id.btn_test_net)
-    public void onClick() {
-//        start(new SampleNetDelegate(), SupportFragment.SINGLETASK);
-        start(new SampleNetDelegate());
+    @OnClick({R.id.btn_test_net, R.id.btn_test_permission})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_test_net:
+//                start(new SampleNetDelegate(), SupportFragment.SINGLETASK);
+                start(new SampleNetDelegate());
+                break;
+            case R.id.btn_test_permission:
+                start(new SamplePermissionDelegate());
+                break;
+        }
     }
 }

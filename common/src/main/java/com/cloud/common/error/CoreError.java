@@ -11,6 +11,7 @@ public interface CoreError {
     int LAYOUT_TYPE_ERROR = 4002;
     int CALLBACK_PARAM_NULL = 4003;
 
+
     enum Values {
         @ErrorCode(code = CoreError.SYSTEM_ERROR, desc = "系统异常")
         SYSTEM_ERROR,

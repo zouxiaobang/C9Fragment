@@ -14,7 +14,7 @@ import com.cloud.common.net.callback.AnnotationCallback;
 import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
-import com.cloud.common.util.NetTool;
+import com.cloud.common.util.net.NetTool;
 
 import java.io.File;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.cloud.common.util;
+package com.cloud.common.util.net;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

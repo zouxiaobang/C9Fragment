@@ -11,6 +11,7 @@ import java.lang.reflect.Field;
  **/
 public class ErrorWrapperException extends RuntimeException implements IError {
     private Enum<?> error;
+    private String desc;
 
     public ErrorWrapperException(String message) {
         super(message);
@@ -18,6 +19,11 @@ public class ErrorWrapperException extends RuntimeException implements IError {
 
     public ErrorWrapperException(Enum<?> error) {
         this.error = error;
+    }
+
+    public ErrorWrapperException(Enum<?> error, String desc) {
+        this.error = error;
+        this.desc = desc;
     }
 
     @Override
@@ -34,8 +40,11 @@ public class ErrorWrapperException extends RuntimeException implements IError {
 
     @Override
     public String getErrorDesc() {
-        ErrorCode errorCode = getField();
+        if (desc != null && desc.length() != 0) {
+            return desc;
+        }
 
+        ErrorCode errorCode = getField();
         return errorCode.desc();
     }
 
