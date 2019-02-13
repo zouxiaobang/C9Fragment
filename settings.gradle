@@ -1,1 +1,1 @@
-include ':cloud', ':common', ':tool'
+include ':sample', ':cloud', ':tool'
