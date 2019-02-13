@@ -105,6 +105,14 @@ public class Configuration {
     }
 
     /**
+     * 设置SharedPreference的名字
+     */
+    public final Configuration withSpName(String spName) {
+        CONFIG_PARAMS.put(ConfigurationKey.SP_NAME.name(), spName);
+        return this;
+    }
+
+    /**
      * 完成参数的配置过程
      */
     public final void configure() {

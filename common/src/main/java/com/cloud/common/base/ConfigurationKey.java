@@ -33,5 +33,9 @@ public enum ConfigurationKey {
     /**
      * 隐藏虚拟按键
      */
-    HIDE_BAR
+    HIDE_BAR,
+    /**
+     * SharedPreference的name
+     */
+    SP_NAME
 }
