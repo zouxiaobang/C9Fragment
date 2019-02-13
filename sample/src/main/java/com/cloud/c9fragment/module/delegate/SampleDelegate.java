@@ -21,6 +21,8 @@ public class SampleDelegate extends Cloud9Delegate {
     AppCompatButton btnTestNet;
     @BindView(R.id.btn_test_permission)
     AppCompatButton btnTestPermission;
+    @BindView(R.id.btn_test_img)
+    AppCompatButton btnTestImg;
 
     @Override
     public Object setLayout() {
@@ -32,7 +34,7 @@ public class SampleDelegate extends Cloud9Delegate {
     }
 
 
-    @OnClick({R.id.btn_test_net, R.id.btn_test_permission})
+    @OnClick({R.id.btn_test_net, R.id.btn_test_permission, R.id.btn_test_img})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_test_net:
@@ -41,6 +43,9 @@ public class SampleDelegate extends Cloud9Delegate {
                 break;
             case R.id.btn_test_permission:
                 start(new SamplePermissionDelegate());
+                break;
+            case R.id.btn_test_img:
+                start(new SampleImgDelegate());
                 break;
         }
     }

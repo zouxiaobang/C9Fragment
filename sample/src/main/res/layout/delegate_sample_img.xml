@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_width="3px"
+            app:civ_border_color="@color/burlywood"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/image_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_show_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示圆形图片"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_show_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示正常图片"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
