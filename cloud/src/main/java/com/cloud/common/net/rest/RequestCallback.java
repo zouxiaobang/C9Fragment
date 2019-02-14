@@ -37,7 +37,6 @@ public class RequestCallback implements Callback<String> {
     public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
         //返回：不管服务器是否出错都返回
         RestResponse restResponse = buildWebResponse(response);
-        Logger.d("【返回】：" + restResponse);
         if (ISUCCESS != null) {
             ISUCCESS.onSuccess(restResponse);
         }

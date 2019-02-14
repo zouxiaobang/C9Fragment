@@ -48,7 +48,6 @@ dependencies {
     //butterknife
     api 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     //日志打印
     api 'com.github.zouxiaobang:Cloud9Logger:1.0.0'
 }

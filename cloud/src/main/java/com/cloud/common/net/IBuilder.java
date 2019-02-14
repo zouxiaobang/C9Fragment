@@ -5,6 +5,7 @@ import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
 
+import java.io.File;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -23,6 +24,10 @@ public interface IBuilder {
     IBuilder request(IRequest request);
     IBuilder success(ISuccess success);
     IBuilder failure(IFailure failure);
+    IBuilder file(File file);
+    IBuilder downloadDir(String downloadDir);
+    IBuilder extension(String extension);
+    IBuilder fileName(String fileName);
     void execute(HttpMethod method);
     HttpClient build();
 }

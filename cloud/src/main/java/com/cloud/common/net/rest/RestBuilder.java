@@ -14,6 +14,7 @@ import com.cloud.common.net.callback.AnnotationCallback;
 import com.cloud.common.net.callback.IFailure;
 import com.cloud.common.net.callback.IRequest;
 import com.cloud.common.net.callback.ISuccess;
+import com.cloud.common.net.download.DownloadHandler;
 import com.cloud.common.util.net.NetTool;
 
 import java.io.File;
@@ -118,6 +119,30 @@ public class RestBuilder implements IBuilder {
     }
 
     @Override
+    public IBuilder file(File file) {
+        this.mFile = file;
+        return this;
+    }
+
+    @Override
+    public IBuilder downloadDir(String downloadDir) {
+        this.mDownloadDir = downloadDir;
+        return this;
+    }
+
+    @Override
+    public IBuilder extension(String extension) {
+        this.mExtension = extension;
+        return this;
+    }
+
+    @Override
+    public IBuilder fileName(String fileName) {
+        this.mFileName = fileName;
+        return this;
+    }
+
+    @Override
     public void execute(HttpMethod method) {
         if (!NetTool.isNetworkAvailable(mContext)) {
             String errMsg = "网络连接异常";
@@ -198,7 +223,7 @@ public class RestBuilder implements IBuilder {
     }
 
     private void download(){
-       /* new DownloadHandler(URL, REQUEST, SUCCESS, FAILURE, ERROR, DOWNLOAD_DIR, EXTENSION, NAME)
-                .handleDownload();*/
+        new DownloadHandler(mUrl, PARAMS, mRequest, mDownloadDir, mExtension, mFileName, mSuccess, mFailure)
+                .handleDownload();
     }
 }
