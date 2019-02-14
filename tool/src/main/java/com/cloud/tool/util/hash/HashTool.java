@@ -1,4 +1,4 @@
-package com.cloud.tool.hash;
+package com.cloud.tool.util.hash;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.cloud.tool.dimen;
+package com.cloud.tool.util.dimen;
 
 import android.content.Context;
 import android.content.res.Resources;
