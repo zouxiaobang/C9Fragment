@@ -59,7 +59,7 @@ public abstract class BaseDelegate extends SwipeBackFragment {
         AnnotationCallback.getInstance().registerSubscriber(this);
         onBindedView(savedInstanceState, rootView);
 
-        return rootView;
+        return attachToSwipeBack(rootView);
     }
 
     @Override
