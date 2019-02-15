@@ -228,6 +228,47 @@ public class SamplePermissionDelegate extends Cloud9Delegate {
  - onNoPermission()：申请失败的权限
 
 
+## 侧边栏的使用
+侧边栏的使用请参考Sample模块中的SampleSlidingDelegate，只需要在layout中使用：
+```
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.cloud.common.component.design.C9SlidingMenu
+        android:id="@+id/my_slidingMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/menu_background"
+        app:RightPadding="150dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/layout_menu"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/img"/>
+        </LinearLayout>
+    </com.cloud.common.component.design.C9SlidingMenu>
+
+</RelativeLayout>
+```
+其中，第一个LinearLayout为侧边栏内容，可以使用include来自定义界面，第二个LinearLayout为主界面
+如果要设置侧边栏出现时，主界面是否缩小(默认)，则在代码中使用：
+```
+mC9SlidingMenu.setScale(true);
+```
 
 
 ## 列表的使用
