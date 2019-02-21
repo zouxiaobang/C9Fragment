@@ -6,52 +6,68 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_net"
+            android:id="@+id/scrollable_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试网络" />
+            android:onClick="onClick"
+            android:text="@string/scrollable_tab" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_permission"
+            android:id="@+id/fixed_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试权限" />
+            android:onClick="onClick"
+            android:text="@string/fixed_tab" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_img"
+            android:id="@+id/dynamic_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试图片加载" />
+            android:onClick="onClick"
+            android:text="@string/dynamic_tab" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_recycler_view"
+            android:id="@+id/no_tab_only_indicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试RecyclerView列表" />
+            android:onClick="onClick"
+            android:text="@string/no_tab_only_indicator" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_download"
+            android:id="@+id/work_with_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试下载" />
+            android:onClick="onClick"
+            android:text="@string/work_with_fragment_container" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_sliding"
+            android:id="@+id/tab_with_badge_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="侧边栏" />
+            android:onClick="onClick"
+            android:text="@string/tab_with_badge_view" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_test_indicator"
+            android:id="@+id/load_custom_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Viewpager配对标题" />
+            android:onClick="onClick"
+            android:text="@string/tab_with_custom_layout" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/custom_navigator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/custom_navigator" />
+
     </LinearLayout>
+
 </ScrollView>

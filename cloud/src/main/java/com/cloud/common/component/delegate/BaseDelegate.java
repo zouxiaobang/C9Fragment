@@ -67,7 +67,7 @@ public abstract class BaseDelegate extends SwipeBackFragment {
         super.onDestroy();
 
         AnnotationCallback.getInstance().unregisterSubscriber(this);
-        Optional.ofNullable(mUnbinder).ifPresent(unbinder -> unbinder.unbind());
+        Optional.ofNullable(mUnbinder).ifPresent(Unbinder::unbind);
     }
 
     public final ProxyActivity getProxyActivity() {

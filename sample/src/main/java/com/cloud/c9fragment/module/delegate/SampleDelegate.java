@@ -37,7 +37,7 @@ public class SampleDelegate extends Cloud9Delegate {
 
 
     @OnClick({R.id.btn_test_net, R.id.btn_test_permission, R.id.btn_test_img, R.id.btn_test_recycler_view,
-            R.id.btn_test_download, R.id.btn_test_sliding})
+            R.id.btn_test_download, R.id.btn_test_sliding, R.id.btn_test_indicator})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_test_net:
@@ -58,6 +58,9 @@ public class SampleDelegate extends Cloud9Delegate {
                 break;
             case R.id.btn_test_sliding:
                 start(new SampleSlidingDelegate());
+                break;
+            case R.id.btn_test_indicator:
+                start(new SampleIndicatorDelegate());
                 break;
         }
     }
