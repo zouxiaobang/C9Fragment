@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.cloud.c9fragment.R;
+import com.cloud.c9fragment.module.delegate.indicator.SampleFixedTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleScrollableTabDelegate;
 import com.cloud.common.component.delegate.Cloud9Delegate;
 
@@ -34,6 +35,7 @@ public class SampleIndicatorDelegate extends Cloud9Delegate {
                 start(new SampleScrollableTabDelegate());
                 break;
             case R.id.fixed_tab:
+                start(new SampleFixedTabDelegate());
                 break;
             case R.id.dynamic_tab:
                 break;
