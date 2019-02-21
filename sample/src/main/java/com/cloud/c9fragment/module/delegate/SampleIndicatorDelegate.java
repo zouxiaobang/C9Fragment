@@ -7,6 +7,7 @@ import android.view.View;
 import com.cloud.c9fragment.R;
 import com.cloud.c9fragment.module.delegate.indicator.SampleDynamicTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleFixedTabDelegate;
+import com.cloud.c9fragment.module.delegate.indicator.SampleNoTabOnlyIndicatorDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleScrollableTabDelegate;
 import com.cloud.common.component.delegate.Cloud9Delegate;
 
@@ -42,6 +43,7 @@ public class SampleIndicatorDelegate extends Cloud9Delegate {
                 start(new SampleDynamicTabDelegate());
                 break;
             case R.id.no_tab_only_indicator:
+                start(new SampleNoTabOnlyIndicatorDelegate());
                 break;
             case R.id.work_with_fragment_container:
                 break;
@@ -51,6 +53,8 @@ public class SampleIndicatorDelegate extends Cloud9Delegate {
                 break;
             case R.id.custom_navigator:
                 break;
+                default:
+                    break;
         }
     }
 }
