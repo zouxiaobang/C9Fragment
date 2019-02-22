@@ -333,6 +333,9 @@ recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this.getProxyActi
 ```
 支持自定义分割线，可以参考SimpleDividerItemDecoration去继承RecyclerView.ItemDecoration实现自己的分割线类，也可以自定义Drawable（SimpleDividerItemDecoration(Context context, Drawable divider, int dividerHeight)）来实现。
 
+## 为ViewPager设置标题条、设置指示点
+### 提供多个样式
+例子请参考com.cloud.c9fragment.module.delegate.SampleIndicatorDelegate，其中提供了多个样式例子。
 
 ## 工具清单
 ### 图片加载框架
