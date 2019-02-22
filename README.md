@@ -231,7 +231,7 @@ public class SamplePermissionDelegate extends Cloud9Delegate {
 ## 侧边栏的使用
 侧边栏的使用请参考Sample模块中的SampleSlidingDelegate，只需要在layout中使用：
 ```
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -262,7 +262,7 @@ public class SamplePermissionDelegate extends Cloud9Delegate {
         </LinearLayout>
     </com.cloud.common.component.design.C9SlidingMenu>
 
-</RelativeLayout>
+ </RelativeLayout>
 ```
 其中，第一个LinearLayout为侧边栏内容，可以使用include来自定义界面，第二个LinearLayout为主界面
 如果要设置侧边栏出现时，主界面是否缩小(默认)，则在代码中使用：
