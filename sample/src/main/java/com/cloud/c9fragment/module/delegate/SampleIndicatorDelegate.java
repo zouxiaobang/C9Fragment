@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.cloud.c9fragment.R;
+import com.cloud.c9fragment.module.delegate.indicator.SampleCustomNavigatorDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleDynamicTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleFixedTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleLoadCustomLayoutDelegate;
@@ -58,6 +59,7 @@ public class SampleIndicatorDelegate extends Cloud9Delegate {
                 start(new SampleLoadCustomLayoutDelegate());
                 break;
             case R.id.custom_navigator:
+                start(new SampleCustomNavigatorDelegate());
                 break;
                 default:
                     break;
