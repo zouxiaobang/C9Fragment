@@ -9,6 +9,7 @@ import com.cloud.c9fragment.module.delegate.indicator.SampleDynamicTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleFixedTabDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleNoTabOnlyIndicatorDelegate;
 import com.cloud.c9fragment.module.delegate.indicator.SampleScrollableTabDelegate;
+import com.cloud.c9fragment.module.delegate.indicator.SampleWorkWithFragmentContainerDelegate;
 import com.cloud.common.component.delegate.Cloud9Delegate;
 
 import butterknife.OnClick;
@@ -46,6 +47,7 @@ public class SampleIndicatorDelegate extends Cloud9Delegate {
                 start(new SampleNoTabOnlyIndicatorDelegate());
                 break;
             case R.id.work_with_fragment_container:
+                start(new SampleWorkWithFragmentContainerDelegate());
                 break;
             case R.id.tab_with_badge_view:
                 break;
