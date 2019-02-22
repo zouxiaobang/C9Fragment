@@ -53,5 +53,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Viewpager配对标题" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_test_qr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="二维码工具" />
     </LinearLayout>
 </ScrollView>

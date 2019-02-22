@@ -356,3 +356,6 @@ com.cloud.tool.util.sharedpreference.SpTool
 
 ### 计时器
 com.cloud.tool.util.timedown.TimeDownTool
+
+### 二维码工具
+om.cloud.tool.util.qr.QrTool
