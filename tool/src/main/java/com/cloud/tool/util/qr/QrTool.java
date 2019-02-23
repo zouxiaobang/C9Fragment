@@ -1,4 +1,4 @@
-package om.cloud.tool.util.qrc;
+package com.cloud.tool.util.qr;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
