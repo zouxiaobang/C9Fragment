@@ -333,6 +333,24 @@ recyclerView.addItemDecoration(new SimpleDividerItemDecoration(this.getProxyActi
 ```
 支持自定义分割线，可以参考SimpleDividerItemDecoration去继承RecyclerView.ItemDecoration实现自己的分割线类，也可以自定义Drawable（SimpleDividerItemDecoration(Context context, Drawable divider, int dividerHeight)）来实现。
 
+## 抖动效果的使用
+在抖动效果中，需要使用插值器来设定某个属性要变化的规则，例如是线性变化，是波浪型变化等等，默认实现了3种插值器，如果要设置不同的效果，最主要的是自定义插值器，可参考默认的插值器即可。
+### 使用
+```
+        C9PropertyValuesHolder holder = new C9PropertyValuesHolder();
+        holder.registerInterpolator(new LinearInterpolator(View.SCALE_X));
+        holder.registerInterpolator(new LinearInterpolator(View.SCALE_Y));
+        holder.registerInterpolator(new ShockInterpolator(View.ROTATION));
+
+        C9Shake.with(holder)
+                .duration(1000)
+                .repeatCount(2)
+                .repeateMode(Animation.RESTART)
+                .startShake(ivShake);
+```
+可以有多种效果重叠在一起组成一个复杂的效果，也可以只有一个，只需要将插值器作为参数注册到C9PropertyValuesHolder中。
+
+
 ## 为ViewPager设置标题条、设置指示点
 ### 提供多个样式
 例子请参考com.cloud.c9fragment.module.delegate.SampleIndicatorDelegate，其中提供了多个样式例子。
@@ -358,4 +376,7 @@ com.cloud.tool.util.sharedpreference.SpTool
 com.cloud.tool.util.timedown.TimeDownTool
 
 ### 二维码工具
-om.cloud.tool.util.qr.QrTool
+com.cloud.tool.util.qr.QrTool
+
+### 生成随机数
+com.cloud.tool.util.random.RandomTool
