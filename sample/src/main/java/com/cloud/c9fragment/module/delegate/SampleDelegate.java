@@ -2,13 +2,11 @@ package com.cloud.c9fragment.module.delegate;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
 import com.cloud.c9fragment.R;
 import com.cloud.common.component.delegate.Cloud9Delegate;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -17,14 +15,6 @@ import butterknife.OnClick;
  * @Desc: to->
  */
 public class SampleDelegate extends Cloud9Delegate {
-    @BindView(R.id.btn_test_net)
-    AppCompatButton btnTestNet;
-    @BindView(R.id.btn_test_permission)
-    AppCompatButton btnTestPermission;
-    @BindView(R.id.btn_test_img)
-    AppCompatButton btnTestImg;
-    @BindView(R.id.btn_test_recycler_view)
-    AppCompatButton btnTestRecyclerView;
 
     @Override
     public Object setLayout() {
@@ -68,6 +58,8 @@ public class SampleDelegate extends Cloud9Delegate {
                 break;
             case R.id.btn_test_shake:
                 start(new SampleShakeDelegate());
+                break;
+            default:
                 break;
         }
     }
